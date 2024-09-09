@@ -1,0 +1,8 @@
+
+1) Analyser l'arborescence de l'application
+
+2) importer dans votre Github
+
+3) Analyser le script Script-automatiser-build-deploy.bat
+
+4) Adapter le script pour build / Deploiement en local
