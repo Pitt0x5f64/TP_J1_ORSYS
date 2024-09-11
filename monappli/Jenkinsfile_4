@@ -18,7 +18,7 @@ node {
 
           stage('Deploy docker'){
                   bat ' echo "Docker Image Tag Name: ${dockerImageTag}" '
-                  bat ' docker stop monappli || true && docker rm monappli || true '
+                  bat ' docker stop monappli && docker rm monappli '
                   bat ' docker run --name monappli -d -p 8081:8081 monappli:${env.BUILD_NUMBER} '
           }
     }catch(e){
