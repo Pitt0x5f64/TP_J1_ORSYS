@@ -23,6 +23,7 @@ pipeline {
           }
           stage('Build Docker') {
             steps{
+              // Create image with name "peter/monappli"
               bat ' docker build -t peter/monappli monappli/ '
             }
           }
@@ -30,6 +31,7 @@ pipeline {
           stage('Deploy Docker'){
             steps
             {
+              // Create container with name "monAppliContainer"
               bat ' docker run --name monAppliContainer -d -p 8081:8081 peter/monappli '
             }
           }
