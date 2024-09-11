@@ -1,12 +1,12 @@
+tools {
+        maven 'Maven3.9.9'
+        jdk 'Jdk21'
+      }
 node {
     def WORKSPACE = "/monappli"
     def dockerImageTag = "monappli${env.BUILD_NUMBER}"
 
     try{
-        tools {
-          maven 'Maven3.9.9'
-          jdk 'Jdk21'
-        }
 //          notifyBuild('STARTED')
          stage('Clone Repo') {
             // for display purposes
