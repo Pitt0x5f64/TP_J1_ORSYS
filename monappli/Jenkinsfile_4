@@ -35,6 +35,7 @@ pipeline {
               // bat ' docker stop monAppliContainer || true && docker rm monAppliContainer || true '
               // Create container with name "monAppliContainer"
               bat ' docker run --name monAppliContainer -d -p 8081:8080 peter/monappli '
+              // Access with "http://localhost:8081/monappli-web/"
             }
           }
     }
