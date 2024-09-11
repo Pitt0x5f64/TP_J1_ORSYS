@@ -15,19 +15,19 @@ pipeline {
                 branch: 'master'
           }
          }
-          stage('Build') {
+          stage('Build Repo') {
             steps{
               bat ' cd monappli & mvn clean install '
             }
                 
           }
-          stage('Build docker') {
+          stage('Build Docker') {
             steps{
               bat ' docker build -t peter/monappli monappli/ '
             }
           }
 
-          stage('Deploy docker'){
+          stage('Deploy Docker'){
             steps
             {
               bat ' echo "Docker Image Tag Name: monappli${env.BUILD_NUMBER}" '
