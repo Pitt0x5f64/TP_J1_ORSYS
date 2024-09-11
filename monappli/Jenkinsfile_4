@@ -32,7 +32,7 @@ pipeline {
             steps
             {
               // Create container with name "monAppliContainer"
-              bat ' docker run --name monAppliContainer -d -p 8081:8081 peter/monappli '
+              bat ' docker run --name monAppliContainer --rm=true -d -p 8081:8081 peter/monappli ' // --rm=true => Delete container on exit
             }
           }
     }
