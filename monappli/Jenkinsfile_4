@@ -12,7 +12,8 @@ node {
                 branch: 'master'
          }
           stage('Build docker') {
-                 dockerImage = docker.build("monappli:${env.BUILD_NUMBER}")
+                 // dockerImage = docker.build("monappli:${env.BUILD_NUMBER}")
+                 dockerImage = { image 'httpd' }
           }
 
           stage('Deploy docker'){
