@@ -23,17 +23,17 @@ pipeline {
           }
           stage('Build docker') {
             steps{
-              dockerImage = bat ' docker build -t peter/monappli monappli/ '
+              bat ' docker build -t peter/monappli monappli/ '
             }
           }
 
           stage('Deploy docker'){
-                steps
-                {
-                  bat ' echo "Docker Image Tag Name: monappli${env.BUILD_NUMBER}" '
-                  bat ' docker stop monappli && docker rm monappli '
-                  bat ' docker run --name monappli -d -p 8081:8081 monappli:${env.BUILD_NUMBER} '
-                }
+            steps
+            {
+              bat ' echo "Docker Image Tag Name: monappli${env.BUILD_NUMBER}" '
+              bat ' docker stop monappli && docker rm monappli '
+              bat ' docker run --name monappli -d -p 8081:8081 monappli:${env.BUILD_NUMBER} '
+            }
           }
     }
 }
