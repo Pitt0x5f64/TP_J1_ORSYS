@@ -18,8 +18,8 @@ node {
 
           stage('Deploy docker'){
                   bat ' echo "Docker Image Tag Name: ${dockerImageTag}" '
-                  bat ' sh "docker stop monappli || true && docker rm monappli || true" '
-                  bat ' sh "docker run --name monappli -d -p 8081:8081 monappli:${env.BUILD_NUMBER}" '
+                  bat ' docker stop monappli || true && docker rm monappli || true '
+                  bat ' docker run --name monappli -d -p 8081:8081 monappli:${env.BUILD_NUMBER} '
           }
     }catch(e){
 //         currentBuild.result = "FAILED"
