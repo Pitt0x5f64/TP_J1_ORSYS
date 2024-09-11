@@ -32,7 +32,7 @@ pipeline {
             steps
             {
               // Stop and delete existing containers
-              bat ' docker stop monAppliContainer || true && docker rm monAppliContainer || true '
+              // bat ' docker stop monAppliContainer || true && docker rm monAppliContainer || true '
               // Create container with name "monAppliContainer"
               bat ' docker run --name monAppliContainer -d -p 8081:8080 peter/monappli '
             }
