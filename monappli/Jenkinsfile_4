@@ -12,7 +12,7 @@ node {
                 branch: 'master'
          }
           stage('Build docker') {
-                 dockerImage = docker build -t peter/monappli /monappli
+                 dockerImage = bat ' docker build -t peter/monappli /monappli '
           }
 
           stage('Deploy docker'){
