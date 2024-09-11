@@ -3,6 +3,10 @@ node {
     def dockerImageTag = "monappli${env.BUILD_NUMBER}"
 
     try{
+        tools {
+          maven 'Maven3.1.1'
+          jdk 'java8'
+        }
 //          notifyBuild('STARTED')
          stage('Clone Repo') {
             // for display purposes
