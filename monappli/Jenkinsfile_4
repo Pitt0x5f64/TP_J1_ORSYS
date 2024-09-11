@@ -22,10 +22,10 @@ node {
                   bat ' docker run --name monappli -d -p 8081:8081 monappli:${env.BUILD_NUMBER} '
           }
     }catch(e){
-//         currentBuild.result = "FAILED"
+          currentBuild.result = "FAILED"
         throw e
     }finally{
-//         notifyBuild(currentBuild.result)
+          notifyBuild(currentBuild.result)
     }
 }
 
