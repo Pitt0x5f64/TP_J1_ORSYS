@@ -1,6 +1,5 @@
 pipeline {
     def WORKSPACE = "/monappli"
-    def dockerImageTag = "monappli${env.BUILD_NUMBER}"
     
     agent any
     tools {
@@ -25,7 +24,7 @@ pipeline {
           }
 
           stage('Deploy docker'){
-                  bat ' echo "Docker Image Tag Name: ${dockerImageTag}" '
+                  bat ' echo "Docker Image Tag Name: monappli${env.BUILD_NUMBER}" '
                   bat ' docker stop monappli && docker rm monappli '
                   bat ' docker run --name monappli -d -p 8081:8081 monappli:${env.BUILD_NUMBER} '
           }
