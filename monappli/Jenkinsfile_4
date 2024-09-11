@@ -48,7 +48,7 @@ def notifyBuild(String buildStatus = 'STARTED'){
   // Email notification
     emailext (
          to: "p.cadoret64@gmail.com",
-         subject: MonAppli_Deployment,
+         subject: MonAppli_Deployment_Status,
          body: details,
          recipientProviders: [[$class: 'DevelopersRecipientProvider']]
        )
