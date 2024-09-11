@@ -17,9 +17,9 @@ node {
           }
 
           stage('Deploy docker'){
-                  echo "Docker Image Tag Name: ${dockerImageTag}"
-                  sh "docker stop monappli || true && docker rm monappli || true"
-                  sh "docker run --name monappli -d -p 8081:8081 monappli:${env.BUILD_NUMBER}"
+                  bat ' echo "Docker Image Tag Name: ${dockerImageTag}" '
+                  bat ' sh "docker stop monappli || true && docker rm monappli || true" '
+                  bat ' sh "docker run --name monappli -d -p 8081:8081 monappli:${env.BUILD_NUMBER}" '
           }
     }catch(e){
 //         currentBuild.result = "FAILED"
@@ -29,8 +29,8 @@ node {
     }
 }
 
-def notifyBuild(String buildStatus = 'STARTED'){
-
+def notifyBuild(String buildStatus = 'STARTED')
+{
 // build status of null means successful
   buildStatus =  buildStatus ?: 'SUCCESSFUL'
   // Default values
@@ -44,7 +44,6 @@ def notifyBuild(String buildStatus = 'STARTED'){
   def details = """<p>${buildStatus} JOB </p>
     <p>Job: ${env.JOB_NAME} - Deployment Sequence: [${env.BUILD_NUMBER}] - Time: ${now}</p>
     <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME}</a>"</p>"""
-
 
   // Email notification
     emailext (
