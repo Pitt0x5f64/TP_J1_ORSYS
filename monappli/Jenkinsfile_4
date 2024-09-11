@@ -11,6 +11,9 @@ node {
                 credentialsId: 'Pitt0x5f64',
                 branch: 'master'
          }
+          stage('Build') {
+                 bat ' mvn clean install '
+          }
           stage('Build docker') {
                  dockerImage = bat ' docker build -t peter/monappli monappli/ '
           }
