@@ -4,8 +4,8 @@ node {
 
     try{
         tools {
-          maven 'Maven3.1.1'
-          jdk 'java8'
+          maven 'Maven3.9.9'
+          jdk 'Jdk21'
         }
 //          notifyBuild('STARTED')
          stage('Clone Repo') {
