@@ -1,5 +1,5 @@
 node {
-    def WORKSPACE = "/var/lib/jenkins/workspace/monappli"
+    def WORKSPACE = "/monappli"
     def dockerImageTag = "monappli${env.BUILD_NUMBER}"
 
     try{
