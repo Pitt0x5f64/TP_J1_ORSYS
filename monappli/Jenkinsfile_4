@@ -12,14 +12,13 @@ node {
                 branch: 'master'
          }
           stage('Build docker') {
-                 // dockerImage = docker.build("monappli:${env.BUILD_NUMBER}")
-                 dockerImage = { image 'httpd' }
+                 dockerImage = docker build -t "monappli:${env.BUILD_NUMBER}"
           }
 
           stage('Deploy docker'){
-                  bat ' echo "Docker Image Tag Name: ${dockerImageTag}" '
-                  bat ' docker stop monappli && docker rm monappli '
-                  bat ' docker run --name monappli -d -p 8081:8081 monappli:${env.BUILD_NUMBER} '
+                  echo "Docker Image Tag Name: ${dockerImageTag}" 
+                  docker stop monappli && docker rm monappli 
+                  docker run --name monappli -d -p 8081:8081 monappli:${env.BUILD_NUMBER}
           }
     }catch(e){
           currentBuild.result = "FAILED"
