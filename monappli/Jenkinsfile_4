@@ -4,7 +4,7 @@ pipeline {
         maven 'Maven3.9.9'
         jdk 'Jdk21'
     }
-    try{
+    stages{
 //          notifyBuild('STARTED')
          stage('Clone Repo') {
             // for display purposes
