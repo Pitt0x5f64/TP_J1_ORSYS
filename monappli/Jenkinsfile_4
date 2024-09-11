@@ -31,7 +31,6 @@ pipeline {
             steps
             {
               bat ' echo "Docker Image Tag Name: monappli${env.BUILD_NUMBER}" '
-              bat ' docker stop peter/monappli && docker rm peter/monappli '
               bat ' docker run --name monAppliContainer -d -p 8081:8081 peter/monappli:${env.BUILD_NUMBER} '
             }
           }
